@@ -3,14 +3,7 @@ package com.santosh.InventoryManagement.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -37,9 +30,9 @@ public class Product {
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn(name="cId",referencedColumnName="cId",nullable=true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer"})*/
-	@ManyToOne(fetch=FetchType.LAZY, optional=true)
+	@ManyToOne(fetch=FetchType.EAGER, optional=true,cascade= CascadeType.ALL)
 	@JoinColumn(name="cId",referencedColumnName="cId",nullable=true)
-	@JsonIgnore
+//	@JsonIgnore
 	private Company c;
 	Product(){}
 	
@@ -52,7 +45,13 @@ public class Product {
 		this.pPrice = price;
 	}
 
-	
+	public Product(String pName, String pDescription, int pStock, int pPrice) {
+		this.pName = pName;
+		this.pDescription = pDescription;
+		this.pStock = pStock;
+		this.pPrice = pPrice;
+	}
+
 	public int getpId() {
 		return pId;
 	}
