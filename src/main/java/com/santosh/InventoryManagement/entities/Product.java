@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 //@NoArgsConstructor
 @Table(name="pystem")
 @Entity
