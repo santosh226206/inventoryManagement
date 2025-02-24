@@ -30,8 +30,8 @@ public class Product {
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn(name="cId",referencedColumnName="cId",nullable=true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer"})*/
-	@ManyToOne(fetch=FetchType.EAGER, optional=true,cascade= CascadeType.ALL)
-	@JoinColumn(name="cId",referencedColumnName="cId",nullable=true)
+	@ManyToOne()
+	@JoinColumn(name="cId")
 //	@JsonIgnore
 	private Company c;
 	Product(){}

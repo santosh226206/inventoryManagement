@@ -43,7 +43,7 @@ public class Company {
 	 /*@OneToMany(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY, orphanRemoval = true,targetEntity=Product.class)
 	 */
 	
-	@OneToMany(mappedBy="c" ,fetch =FetchType.EAGER,cascade=CascadeType.ALL,targetEntity=Product.class)
+	@OneToMany(mappedBy="c" ,fetch =FetchType.EAGER,cascade=CascadeType.ALL)
 	@JsonProperty("p")
 	@OrderBy("pStock")
 	private List<Product> p;
