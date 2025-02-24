@@ -35,7 +35,12 @@ public class MyController {
 	}
 	@PostMapping("/company")
 	public Company addCompany(@RequestBody Company company) {
-		return this.companyService.addCompany(company);
+		if (company.getP() != null) {
+			for (Product product : company.getP()) {
+				product.setC(company);  // Ensure each product has a reference to the company
+			}
+		}
+		return companyService.addCompany(company);
 	}
 	
 }

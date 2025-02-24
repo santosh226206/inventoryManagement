@@ -54,7 +54,7 @@ public class ProductServiceImpl implements ProductService{
 			if(x.getpId()==productId) {
 				x.setpDescription(product.getpDescription());
 				x.setpName(product.getpName());
-				x.setpPrice(product.getPrice());
+				x.setpPrice(product.getpPrice());
 				x.setpStock(product.getpStock());
 				
 				break;

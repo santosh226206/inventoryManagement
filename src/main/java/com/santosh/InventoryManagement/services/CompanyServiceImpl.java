@@ -34,7 +34,7 @@ public class CompanyServiceImpl implements CompanyService{
 	@Override
 	public Company addCompany(Company company) {
 		companyDao.save(company);
-		company.setcName("hello world");
+		//company.setcName("hello world");
 		
 		return companyDao.save(company);
 		
